@@ -51,8 +51,9 @@ def login():
         print("Incorrect password")
         return None
     
-def menu(user):
-    user = User()
+def menu(): # User should not be passed in here in the menu function as your information is not yet available
+    
+    #user = User() user should not be initialized here as you don't have user date yet
     while True:
         print("Welcome")
         print("1 --> View Profile")    
@@ -63,11 +64,14 @@ def menu(user):
         choice = int(input("Enter your choice from (1-4)"))
 
         if choice == 1:
+            # user information should be available here before you can view it, like username, to fetch the user
             user.view_profile()
         if choice == 2:
+            # user information should be available here before you can update it, like username, to fetch the user to update it
             newname = input("Enter your new name: ")
             user.update_name(newname)    
         if choice == 3:
+            # user information should be available here before you can update it, like username, to fetch the user to update its password
             old_pass = input("Enter your current password: ")
             new_pass = input("Enter your nre password: ")
             user.update_pass(old_pass,new_pass)
